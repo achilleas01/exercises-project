@@ -1,0 +1,106 @@
+<header class="navbar navbar-expand-md navbar-light fixed-top bg-white fixed-top">
+    <div class="container-fluid">
+        <div class="wrapper">
+            <div class="container">
+                <div class="row align-items-center" style="height: 100%;">
+                    <div class="col-sm-6 col-md-8 col-lg-5 area-left">
+                        <ul class="nav flex align-items-center">
+                            <li class="nav-item logo hidden-xs hidden-sm hidden-md">
+                                <a target="_blank" href="http://www.aade.gr">
+                                    <img src="assets/media/aade_gr.svg" />
+                                </a>
+                            </li>
+                            <li class="nav-item menu-container align-self-center">
+                                <div class="menu">
+
+                                    <div class="btn-group header-menu" dropdown>
+                                        <button type="button" dropdownToggle class="btn btn-default dropdown-toggle" 
+                                                aria-haspopup="true"
+                                                aria-expanded="false">
+                                            &nbsp;
+                                        </button>
+                                       <ul *dropdownMenu class="dropdown-menu">
+                                            <li class="dropdown-item">
+                                                <a href="" [routerLink] ="['/welcome']" class="icon">
+                                                    <fa-icon [icon]="faHouseIcon" class="tw-text-2xl tw-mr-2"></fa-icon>
+                                                    Αρχική Σελίδα
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <!-- (click)="showAppealList()" -->
+                                                <a role="button"  class="icon">
+                                                    <fa-icon [icon]="faScaleIcon" class="tw-text-2xl tw-mr-2"></fa-icon>
+                                                    <span class="">Οι προσφυγές μου</span>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <!-- (click)="createNew()" -->
+                                                <a role="button"class="icon">
+                                                    <fa-icon [icon]="fileIcon" class="tw-text-2xl tw-mr-2"></fa-icon>
+                                                    <span class="">Νέα Ενδικοφανής Προσφυγή</span>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <a href="" class="icon" target="_blank" href="https://www.aade.gr/sites/default/files/2018-05/%CE%95%CE%93%CE%A7%CE%95%CE%99%CE%A1%CE%99%CE%94%CE%99%CE%9F%20%CE%9F%CE%A0%CE%A3%20%CE%94%CE%95%CE%94%20v.1.pdf">
+                                                    <fa-icon [icon]="faBookIcon" class="tw-text-2xl tw-mr-2"></fa-icon>
+                                                    <span>Οδηγίες Χρήσης</span>
+                                                </a> 
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <a href="" class="icon" target="_blank" href="https://www.aade.gr/sites/default/files/2018-05/%CE%A3%CF%85%CF%87%CE%BD%CE%AD%CF%82%20%CE%95%CF%81%CF%89%CF%84%CE%AE%CF%83%CE%B5%CE%B9%CF%82%20%CF%80%CE%BF%CF%85%20%CE%B1%CF%86%CE%BF%CF%81%CE%BF%CF%8D%CE%BD%20%CF%83%CF%84%CE%B7%20%CE%94%CE%95%CE%94_%CE%91%CE%A0%CE%A1%CE%99%CE%9B%CE%99%CE%9F%CE%A3%202018_%CE%9F%CE%A0%CE%A3%20%CE%94%CE%95%CE%94_%CE%A0%CE%A1%CE%9F%CE%A4%CE%A5%CE%A0%CE%9F_1.pdf">
+                                                    <fa-icon [icon]="faBookIcon" class="tw-text-2xl tw-mr-2"></fa-icon>
+                                                    <span>Συχνές Ερωτήσεις</span>
+                                                </a> 
+                                            </li>
+                                        </ul>
+                                    </div> 
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="hidden-xs hidden-sm hidden-md col-lg-3 area-middle">
+                        <a role="button" [routerLink] ="['/appeals/welcome']">
+                            <img src="assets/media/myAppeal.png" width="234" height="70">
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-4 area-right">
+
+                        <ul class="nav flex align-items-center justify-content-end">
+
+                            <li class="nav-item menu-container align-self-middle">
+                                <div class="menu">
+                                    <!-- User profile -->
+                                    <div class="btn-group myaccount" dropdown>
+                                        <button type="button" dropdownToggle class=" dropdown-toggle" 
+                                                aria-haspopup="true"
+                                                aria-expanded="false">
+                                            <img class="img" src="assets/media/myaccount.svg" /> 
+                                             ΛΑΓΟΥΔΑΚΟΣ ΔΗΜΗΤΡΙΟΣ
+                                        </button>
+                                        <ul *dropdownMenu role="menu" class="dropdown-menu" style="margin-left: 0px; left: -45%;">
+                                            <!-- User image -->
+                                            <li class="header text-center">
+                                                <div class="icon">
+                                                    <img src="assets/media/myaccount.svg" alt="User Image">
+                                                </div>
+                                                <p>
+                                                   <br>
+                                                    ΑΦΜ: 
+                                                </p>   
+                                            </li>
+                                        </ul>
+                                    </div> 
+
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  div class="footer"></div-->
+    </div>
+</header>
+

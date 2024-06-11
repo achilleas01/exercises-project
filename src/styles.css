@@ -1,0 +1,43 @@
+/*@import '~bootstrap/dist/css/bootstrap.min.css'; */
+@import './bootstrap46.css';
+
+@import 'app/globaless.css';
+@import 'app/global.css';
+
+.p-button.p-button-icon-only {
+    width: 2.5rem;
+    padding: 0.5rem 0;
+}
+
+.p-inputtext {
+    padding: 0.2rem 0.2rem;
+}
+
+.p-datepicker table {
+    font-size: 0.8rem;
+}
+
+.p-datepicker table td {
+    padding: 0.1rem;
+}
+
+.p-datepicker table td>span {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+section.layout-table .card .card-body .p-calendar table tr td {
+    border: none;
+}
+
+section.layout-table .card .card-body table tr:first-child td:firstchild {
+    border: none;
+}
+
+section.layout-table .card .card-body table tr:first-child td:nthchild(n+2) {
+    border: none;
+}
+
+.p-calendar .p-link {
+    font-size: 0.65rem;
+}

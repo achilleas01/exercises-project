@@ -1,0 +1,27 @@
+.custom-menu {
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.custom-panel {
+	min-width:400px;
+    margin: 10px 10px;
+    padding: 6px 22px;
+}
+
+.custom-panel-title {
+    font-size: 36px;
+    color: white;
+    text-align:center;
+}
+
+
+@media (min-width:992px) {
+    .custom-menu {
+        grid-template-columns: 50% 50%;
+    }
+} 
+
+.buttons-groups-wide {
+    padding-top: 120px;
+}

@@ -1,0 +1,59 @@
+<div class="modal-header">  
+    <div>
+        <div class="col-md-12">
+             <h4 class="modal-title">Στοιχεία Παραστατικού</h4>
+        </div>
+    </div>
+  </div>  
+  <div class="modal-body">  
+    <form id="userPraxiForm"  name="form" class="form" [formGroup]="parastatikoForm" novalidate>
+                <div class="form-group row">
+                    <label class="text-middle control-label col-sm-4" >Αριθμός Παραστατικού:</label>
+                    <div class="col-sm-8">
+                        <input  class="form-control" type="text" name="arepitagis" formControlName="arepitagis" />
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label class="text-middle control-label col-sm-4" >ΑΦΜ Εκδότη:</label>
+                    <div class="col-sm-8">               
+                        <input  class="form-control" type="text" name="afmekdoti" formControlName="afmekdoti"/>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="text-middle control-label col-sm-4" >Επωνυμία Επιχείρησης:</label>
+                    <div class="col-sm-8">
+                        <input  class="form-control" type="text" name="companyname" formControlName="companyname" />
+                    </div>
+
+                </div>
+
+               <div class="form-group row">
+                    <label class="text-middle control-label col-sm-4" >Ημερομηνία Έκδοσης:</label>
+                    <div class="col-sm-8">
+                        <p-calendar formControlName="hmekdosis" icon="pi pi-calendar" [showIcon]="true" dateFormat="dd/mm/yy"></p-calendar>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="text-middle control-label col-sm-4" >Ποσό Συναλλαγής:</label>
+                    <div class="col-sm-8">
+                     <input class="form-control" formControlName="poso" type="text" name="poso" />
+                    </div>
+                </div>
+                {{ parastatikoForm.value | json }}
+        </form>
+    </div>
+
+  <div class="modal-footer">
+     <button  type="submit" *ngIf="insertMode && !statusDisableEpitagh"
+            class="btn btn-info" (click)="onEpitaghAdded()">Εισαγωγή</button>       
+        <button  type="button"  *ngIf="editMode && !statusDisableEpitagh"
+            (click)="onEpitaghUpdated()" 		 
+            class="btn btn-info">Ενημέρωση</button>
+        <button  type="button"  *ngIf="insertMode" (click)="closemyModalinsertEpitagh()" 
+            class="btn btn-primary" data-dismiss="modal">Κλείσιμο</button>
+        <button  type="button"  *ngIf="editMode" (click)="closemyModalupdateEpitagh()" 
+            class="btn btn-primary" data-dismiss="modal">Κλείσιμο</button>
+         
+  </div>  

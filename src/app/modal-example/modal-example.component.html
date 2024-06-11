@@ -1,0 +1,205 @@
+<section class="page-breadcrumb">
+    <div class="container-fluid">
+      <h2>
+        Παραστατικά Αγοράς Ειδών Καυσίμων
+      </h2>
+    </div>
+  </section>
+  <section class="layout-general layout-table">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+        <div class="card">
+          <div class="card-header text-center">
+            <div>
+              <h3 class="title">
+               Στοιχεία Παραστατικών
+             </h3>
+              <!-- dropdown selector -->
+              <div class="side-selector right">
+                <div>
+                  <button type="button" class="btn btn-primary"
+                    (click)="insertEpitagh(myModalEpitagh)">
+                    Εισαγωγή Παραστατικού
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="card-body">
+            <div class="scrollable" *ngIf="formdataObj.epitages.length > 0">
+              <table class="">
+                <thead>
+                  <tr class="">
+                    <th class="text-center">
+                      <div>Α/Α</div>
+                    </th>
+                    <th class="text-center">
+                      <div>Αρ. Παραστατικού</div>
+                    </th>
+                    <th class="text-center">
+                      <div>ΑΦΜ Εκδότη</div>
+                    </th>
+                    <th class="text-center">
+                      <div>Ημ. Έκδοσης</div>
+                    </th>
+                    <th class="text-center">
+                      <div>Επων. Επιχείρησης</div>
+                    </th>
+                    <th class="text-center">
+                      <div>Ποσό Συναλλαγής</div>
+                    </th>
+                    <th class="text-center">
+                      <div>Ενέργεια</div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let ak of formdataObj.epitages; index as i;">
+                    <td class="text-center">
+                      <div>{{ i + 1}}</div>
+                    </td>
+                    <td class="text-center">
+                      <div>{{ak.arepitagis}}</div>
+                    </td>
+                    <td class="text-center">
+                      <div>{{ak.afmekdoti}}</div>
+                    </td>
+                    <td class="text-center">
+                      <div>{{ ak.hmekdosis | date}}</div>
+                    </td>
+                    <td class="text-center">
+                      <div>{{ak.companyname}}</div>
+                    </td>
+                    <td class="text-right">
+                     <div>{{ak.poso| currency: 'EUR'}}</div>
+                    </td>
+                    <td align="center" nowrap="nowrap">
+                      <div>
+                        <button type="button" class="btn btn-info" (click)="editlistEpitagh(i, myModalEpitagh, false)">
+                          <fa-icon [icon]="editIcon" class="tw-text-3xl" style="color: white;"></fa-icon>
+                        </button>
+                        &nbsp;
+                        <button type="button" class="btn btn-info" (click)="editlistEpitagh(i, myModalEpitagh, true)">
+                          <fa-icon [icon]="searchIcon" class="tw-text-3xl" style="color: white;"></fa-icon>
+                        </button>
+                        &nbsp;
+                        <button type="button"
+                          class="btn btn-danger" (click)="openModalDeleteParastatiko(confirmModalDeleteParastatiko, i)">
+                          <fa-icon [icon]="deleteIcon" class="tw-text-3xl" style="color: white;"></fa-icon>
+                      </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+  
+  
+            <div class="row" data-equalizer-group>
+              <!-- LEFT -->
+              <div class="col-md-6">
+                <table class="headers-gray side-header-panel">
+                  <thead>
+                    <tr>
+                      <th rowspan="2" class="text-center side-header bg-cyan">
+                        <div class="flex align-middle justify-center" data-equalize>
+                          <strong>
+                            Πλήθος<br>
+                            Παραστατικών
+                          </strong>
+                        </div>
+                      </th>
+                    </tr>
+                    <tr class="td first last text-center">
+                      <td class="border-radius-bottom-left">
+                        <div class="flex align-middle justify-center" data-equalize>
+                          {{formdataObj.epitages.length}}
+                        </div>
+                      </td>
+  
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+              <!-- LEFT - end  -->
+              <!-- RIGHT -->
+              <div class="col-md-6">
+                <table class="headers-gray side-header-panel">
+                  <thead>
+                    <tr>
+                      <th rowspan="2" class="text-center side-header bg-blue-light">
+                        <div class="flex align-middle justify-center" data-equalize>
+                          <strong>Συνολικό Ποσό<br>
+                            Παραστατικών
+                          </strong>
+                        </div>
+                      </th>
+                    </tr>
+                    <tr class="td first last">
+                      <td class="text-center" data-equalize>
+                        <div class="flex align-middle justify-center" data-equalize>
+                         {{formdataObj.totalamount| currency: 'EUR'}}
+                        </div>
+                      </td>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+              <!-- RIGHT end -->
+            </div>
+          </div>
+        </div>
+  
+       </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  <ng-template #myModalEpitagh>
+    <app-custom-modal 
+      [statusDisableEpitagh]="formdataObj.statusdisablefieldsepitagh"
+      [insertMode]="epitaghInsertFlag" 
+      [epitaghObj]="passedToChild"
+      [editMode]="epitaghUpdateFlag" 
+      (epitaghAdded)="addListEpitagh($event)"
+      (epitaghUpdated)="updatelistEpitagh($event)" 
+      (closeModalInsert)="closemyModalinsertEpitagh()"
+      (closeModalUpdate)="closemyModalupdateEpitagh()"
+      ></app-custom-modal>
+  </ng-template>
+  <ng-template #confirmModalDeleteParastatiko>
+    <div class="modal-body text-center">
+      <p>Θέλετε να διαγράψετε σίγουρα το παραστατικό;</p>
+      <button type="button" class="btn btn-default" (click)="confirmDeleteParastatiko()">Ναι</button>
+      <button type="button" class="btn btn-primary" (click)="noDeleteParastatiko()">Όχι</button>
+    </div>
+  </ng-template>
+  <!--
+     
+
+
+    <ng-template #myModalDelete>
+    <app-custom-modal-delete [message]="infosave" (closeModalDeleteTempSave)="closemyModalDeleteTempSave()"></app-custom-modal-delete>
+  </ng-template>
+  <ng-template #myModalSave>
+     <app-custom-modal-save [message]="infosave" (closeModalSave)="closemyModalSave()"></app-custom-modal-save>
+  </ng-template>
+  <ng-template #myModalErrors>
+    <app-custom-modal-error [message]="infosave" [errorhtmldescription]="postresult.errordescrepitagh" (closeModalError)="closemyModalError()">
+    </app-custom-modal-error>
+  </ng-template>-->
+  
+  <!--
+
+  
+  <ng-template #confirmModalDeleteTempSave>
+      <div class="modal-body text-center">
+        <p>Θέλετε σίγουρα να διαγράψετε την προσωρινή αποθήκευση;</p>
+        <button type="button" class="btn btn-default" (click)="confirmDeleteTempSave()">Ναι</button>
+        <button type="button" class="btn btn-primary" (click)="noDeleteTempSave()">Όχι</button>
+      </div>
+  </ng-template>-->
+  

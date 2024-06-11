@@ -1,0 +1,202 @@
+<section class="page-breadcrumb ng-scope">
+    <div class="container-fluid">
+      <h2 style="font-size: 30px;">
+          Φόρμα Υποβολής Ενδικοφανούς Προσφυγής
+      </h2>
+    </div>
+  </section>
+    <form class="application-form data-form" #applicationForm="ngForm" (ngSubmit)="submitFormProsfygi(applicationForm, $event)">
+    <section class="layout-general layout-table">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+          <div class="card">
+            <div class="card-header text-center">
+              <div>
+                <h3 class="title">
+                   Βασικά Στοιχεία
+               </h3>
+              </div>
+            </div>
+            
+            <div class="card-body">
+                  <div class="form-group row tw-pb-3">
+                    <div class="col-sm-6">
+                      <label for="inputEmail3" class="col-form-label tw-pt-5 tw-text-2xl">ΔΟΥ Έκδοσης των Προσβαλλόμενων Πράξεων και ΥΠΟΒΟΛΗΣ της Προσφυγής (*)
+                        <fa-icon [icon]="infoIcon" class="tw-text-3xl" style="color: #0091d2;"></fa-icon>
+                      </label>
+                    </div> 
+                    <div class="col-sm-6">
+                      <select id="doysChoice" class="form-control" name="doy" ngModel #doy="ngModel" required>
+                        <option value="">Επιλέξτε ΔΟΥ</option>
+                        <option value="1201"> ΔΟΥ Α ΠΕΙΡΑΙΑ </option>
+                        <option value="1129"> ΔΟΥ ΑΓΙΟΥ ΔΗΜΗΤΡΙΟΥ </option>
+                        <option value="1101"> ΔΟΥ Α ΑΘΗΝΩΝ </option>
+                        <option value="1136"> ΔΟΥ ΑΓΙΩΝ ΑΝΑΡΓΥΡΩΝ </option>
+                      </select>
+                     
+                      <div *ngIf="doy.touched && doy.errors" class="error">
+                        <div *ngIf="doy.errors?.required">
+                          Απαιτείται η ΔΟΥ Έκδοσης των Προσβαλλόμενων Πράξεων και ΥΠΟΒΟΛΗΣ της Προσφυγής
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group row tw-pb-3">
+                  <div class="col-sm-6">
+                    <label for="inputEmail3" class="col-form-label tw-pt-5 tw-text-2xl">Είδος Πράξης (*)
+                      <fa-icon [icon]="infoIcon" class="tw-text-3xl" style="color: #0091d2;"></fa-icon>
+                    </label>
+                  </div>
+                  <div class="col-sm-6">
+                     <select id="praxitype" class="form-control tw-text-2xl" name="eidosPraxi" ngModel #eidosPraxi="ngModel" required>
+                      <option value="">Επιλέξτε Είδος Πράξης</option>
+                      <option value="1"> Πράξη Προσδιορισμού Φόρου (μετά από έλεγχο) </option>
+                      <option value="2"> Λοιπές φορολογικές πράξεις </option>
+                      <option value="3"> Καταχώριση Πράξης από χρήστη </option>
+                    </select>
+                    <div *ngIf="eidosPraxi.touched && eidosPraxi.errors" class="error">
+                      <div *ngIf="eidosPraxi.errors?.required">
+                        Απαιτείται το Είδος Πράξης
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row tw-mb-3">
+                    <label for="colFormLabelLg" class="col-sm-6 col-form-label tw-pt-4 tw-text-2xl">Αριθμός Εντολής Ελέγχου (*)</label>
+                    <div class="col-sm-6">
+                      <input type="text" style="text-align: left;" class="form-control tw-text-2xl" id="colFormLabelLg" name="numberEntoli" ngModel #numberEntoli="ngModel" required/>
+                      <div *ngIf="numberEntoli.touched && numberEntoli.errors" class="error">
+                        <div *ngIf="numberEntoli.errors?.required">
+                          Απαιτείται ο Αριθμός Εντολής Ελέγχου
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group row tw-mb-3">
+                  <label for="colFormLabelLg" class="col-sm-6 col-form-label tw-pt-4 tw-text-2xl">Έτος Εντολής Ελέγχου (*)</label>
+                  <div class="col-sm-6">
+                    <select id="yearsChoice" class="form-control tw-text-2xl" name="yearEntoli" ngModel #yearEntoli="ngModel" required>
+                      <option value="">Επιλέξτε Έτος</option>
+                      <option value="2022">2022</option>
+                      <option value="2021">2021</option>
+                      <option value="2020">2020</option>
+                      <option value="2019">2019</option>
+                      <option value="2018">2018</option>
+                    </select>
+                    <div *ngIf="yearEntoli.touched && yearEntoli.errors" class="error">
+                      <div *ngIf="yearEntoli.errors?.required">
+                        Απαιτείται το Έτος της Εντολής Ελέγχου
+                      </div>
+                    </div>
+                  </div>
+                </div>  
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <section class="layout-general layout-table">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+    
+          <div class="card">
+            <div class="card-header text-center">
+              <div>
+                <h3 class="title">
+                Εισαγωγή Λοιπών Στοιχείων
+               </h3>
+              </div>
+            </div>
+    
+            <div class="card-body">
+              <div class="form-group row">
+                <label for="colFormLabelLg" class="col-sm-6 col-form-label">Τηλέφωνο Επικοινωνίας (*)</label>
+                <div class="col-sm-6">
+                  <input type="text" style="text-align: left;" class="form-control tw-text-2xl" id="colFormLabelLg" name="telephone" 
+                  [(ngModel)]="initialVal.telephone" 
+                  #telephone="ngModel"  required minlength="10" maxlength="10">
+                  <div *ngIf="telephone.touched && telephone.errors" class="error">
+                    <div *ngIf="telephone.errors?.required">
+                      Απαιτείται το Τηλέφωνο Επικοινωνίας
+                   </div>
+                   <div *ngIf="telephone.errors?.pattern || telephone.errors?.maxlength || telephone.errors?.minlength">
+                      Το τηλέφωνο πρέπει να έχει 10 αριθμητικούς χαρακτήρες
+                 </div>
+                </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="colFormLabelLg" class="col-sm-6 col-form-label">Email Επικοινωνίας (*)</label>
+                <div class="col-sm-6">
+                  <input type="text" style="text-align: left;" class="form-control tw-text-2xl" id="colFormLabelLg" name="email" #email="ngModel" 
+                  [(ngModel)]="initialVal.email" email required>   
+                  <div *ngIf="email.touched && email.errors" class="error">
+                    <div *ngIf="email.errors?.required">
+                      Απαιτείται email επικοινωνίας
+                   </div>
+                   <div *ngIf="email.errors?.email">
+                      Μη έγκυρη μορφή email
+                 </div>
+                </div>               
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="colFormLabelLg" class="col-sm-6 col-form-label">Σύντομη Περιγραφή Αιτήματος</label>
+                <div class="col-sm-6">
+                  <textarea class="form-control tw-text-2xl" id="exampleFormControlTextarea1" rows="6" name="notes" maxlength="800" 
+                  ngModel (ngModelChange)="onNotesChange($event)" [ngModelOptions]="{ updateOn: 'blur'}"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <section class="layout-general layout-table">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="form-group row">
+                  <label for="acceptanceCondition" class="col-sm-4 col-form-label">Υπεύθυνη Δήλωση
+                  </label>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-2">
+                    <input type="checkbox" name="acceptanceCondition" id="acceptanceCondition" ngModel required class="tw-h-8 tw-w-8 tw-border tw-border-gray-400 tw-rounded-md tw-bg-white tw-checked:bg-blue-600 tw-checked:border-blue-600 tw-focus:outline-none tw-transition tw-duration-200 tw-mt-1 tw-align-top tw-bg-no-repeat tw-bg-center tw-bg-contain tw-float-left tw-cursor-pointer" />
+                  </div>
+                  <div class="col-sm-10">
+                    <p style="line-height: 1.43!important; color: #6c757d !important;">Δηλώνω υπεύθυνα ότι τα επισυναπτόμενα έγγραφα και δικαιολογητικά, που συνοδεύουν την Ενδικοφανή Προσφυγή μου και το τυχόν Αίτημα Αναστολής και υποβάλλονται ηλεκτρονικά, αποτελούν αντίγραφα εκ των πρωτοτύπων ή επικυρωμένων αντιγράφων αυτών, τα οποία έχω στην κατοχή μου και θα προσκομίσω ενώπιον της Δ/νσης Επίλυσης Διαφορών, οποτεδήποτε μου ζητηθούν.</p>
+                  </div>
+                </div>
+                </div><!-- panel body -->
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+    <section class="layout-general layout-table">
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-8 offset-sm-4 col-md-6 offset-md-6 col-lg-4 offset-lg-8 col-xl-3 offset-xl-9">
+            <button type="submit" class="btn btn-primary tw-text-3xl tw-px-8 tw-py-4">
+              Υποβολή
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="form-val">
+      Form values {{ applicationForm.value | json }}
+    </div>
+    <div class="form-val">
+      Form Validity {{ applicationForm.valid }}
+    </div>
+    </form>
+  
+
