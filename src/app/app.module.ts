@@ -25,34 +25,32 @@ import { LoginReactiveComponent } from './login-reactive/login-reactive.componen
 import { AppealAddReactiveComponent } from './appeal-add-reactive/appeal-add-reactive.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    StateDecrPipe,
-    WelcomeComponent,
-    LoginTemplateDrivenComponent,
-    AppealAddTemplateComponent,
-    ModalExampleComponent,
-    CustomModalComponent,
-    LoginReactiveComponent,
-    AppealAddReactiveComponent
-  ],
-  imports: [
-    BrowserModule,
-    ModalModule.forRoot(),
-    CalendarModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    BsDropdownModule.forRoot(),
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    TableModule,
-    ToastrModule.forRoot(),
-    FontAwesomeModule
-  ],
-  providers:[{provide: LocationStrategy, useClass: HashLocationStrategy}],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        ModalModule.forRoot(),
+        CalendarModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        BsDropdownModule.forRoot(),
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+        TableModule,
+        ToastrModule.forRoot(),
+        FontAwesomeModule,
+        HeaderComponent,
+        FooterComponent,
+        StateDecrPipe,
+        WelcomeComponent,
+        LoginTemplateDrivenComponent,
+        AppealAddTemplateComponent,
+        ModalExampleComponent,
+        CustomModalComponent,
+        LoginReactiveComponent,
+        AppealAddReactiveComponent
+    ],
+    providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

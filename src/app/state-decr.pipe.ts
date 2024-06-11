@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { SubmissionState } from './appeal.state';
 
 @Pipe({
-  name: 'stateDecr'
+    name: 'stateDecr',
+    standalone: true
 })
 export class StateDecrPipe implements PipeTransform {
 

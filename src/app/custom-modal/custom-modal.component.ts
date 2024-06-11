@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, UntypedFormControl, UntypedFormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+import { NgIf, JsonPipe } from '@angular/common';
+import { CalendarModule } from 'primeng/calendar';
 
 type Epitagh = {
   aa?: number,
@@ -14,10 +16,12 @@ type Epitagh = {
   poso2?: number
 };
 @Component({
-  selector: 'app-custom-modal',
-  templateUrl: './custom-modal.component.html',
-  styleUrls: ['./custom-modal.component.css'],
-  providers: [BsModalRef]
+    selector: 'app-custom-modal',
+    templateUrl: './custom-modal.component.html',
+    styleUrls: ['./custom-modal.component.css'],
+    providers: [BsModalRef],
+    standalone: true,
+    imports: [FormsModule, ReactiveFormsModule, CalendarModule, NgIf, JsonPipe]
 })
 export class CustomModalComponent implements OnInit {
 

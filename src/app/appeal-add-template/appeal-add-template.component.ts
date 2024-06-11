@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormsModule } from '@angular/forms';
 import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
+import { NgIf, JsonPipe } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
-  selector: 'app-appeal-add-template',
-  templateUrl: './appeal-add-template.component.html',
-  styleUrls: ['./appeal-add-template.component.css']
+    selector: 'app-appeal-add-template',
+    templateUrl: './appeal-add-template.component.html',
+    styleUrls: ['./appeal-add-template.component.css'],
+    standalone: true,
+    imports: [FormsModule, FontAwesomeModule, NgIf, JsonPipe]
 })
 export class AppealAddTemplateComponent implements OnInit {
 

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
+import { NgFor, NgIf, JsonPipe } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 type Doy = {
   code: string,
@@ -9,9 +11,11 @@ type Doy = {
 }
 
 @Component({
-  selector: 'app-appeal-add-reactive',
-  templateUrl: './appeal-add-reactive.component.html',
-  styleUrls: ['./appeal-add-reactive.component.css']
+    selector: 'app-appeal-add-reactive',
+    templateUrl: './appeal-add-reactive.component.html',
+    styleUrls: ['./appeal-add-reactive.component.css'],
+    standalone: true,
+    imports: [FormsModule, ReactiveFormsModule, FontAwesomeModule, NgFor, NgIf, JsonPipe]
 })
 export class AppealAddReactiveComponent implements OnInit {
 

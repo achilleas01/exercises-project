@@ -2,6 +2,9 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
 import { faPenToSquare, faTrash, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { CustomModalComponent } from '../custom-modal/custom-modal.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgIf, NgFor, CurrencyPipe, DatePipe } from '@angular/common';
 
 type Epitagh = {
   aa?: number,
@@ -24,9 +27,11 @@ type formdata = {
 };
 
 @Component({
-  selector: 'app-modal-example',
-  templateUrl: './modal-example.component.html',
-  styleUrls: ['./modal-example.component.css']
+    selector: 'app-modal-example',
+    templateUrl: './modal-example.component.html',
+    styleUrls: ['./modal-example.component.css'],
+    standalone: true,
+    imports: [NgIf, NgFor, FontAwesomeModule, CustomModalComponent, CurrencyPipe, DatePipe]
 })
 export class ModalExampleComponent implements OnInit {
   

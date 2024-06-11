@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, UntypedFormControl, UntypedFormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgIf, JsonPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-login-reactive',
-  templateUrl: './login-reactive.component.html',
-  // template: '<p>login-reactive works!</p>',
-  styleUrls: ['./login-reactive.component.css']
+    selector: 'app-login-reactive',
+    templateUrl: './login-reactive.component.html',
+    // template: '<p>login-reactive works!</p>',
+    styleUrls: ['./login-reactive.component.css'],
+    standalone: true,
+    imports: [FormsModule, ReactiveFormsModule, NgIf, JsonPipe]
 })
 export class LoginReactiveComponent implements OnInit {
   initialValueObj = {
